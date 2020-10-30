@@ -1,6 +1,6 @@
 {
     "name": "nativescript-share-file-knotes",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "Send/share file to other apps.",
     "main": "share-file",
     "typings": "index.d.ts",

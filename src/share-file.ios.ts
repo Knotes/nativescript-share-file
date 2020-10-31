@@ -72,7 +72,7 @@ class UIDocumentInteractionControllerDelegateImpl2 extends NSObject implements U
 
     public getViewController(): UIViewController {
         const app = ShareFile.getter(UIApplication, UIApplication.sharedApplication);
-        return app.keyWindow.rootViewController.visibleViewController;
+        return (app.keyWindow.rootViewController as UINavigationController).visibleViewController;
     }
 
     public documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) {

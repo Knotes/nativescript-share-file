@@ -67,6 +67,7 @@ export class ShareFile {
     }
 }
 
+@NativeClass()
 class UIDocumentInteractionControllerDelegateImpl2 extends NSObject implements UIDocumentInteractionControllerDelegate {
     public static ObjCProtocols = [UIDocumentInteractionControllerDelegate];
 
@@ -80,7 +81,13 @@ class UIDocumentInteractionControllerDelegateImpl2 extends NSObject implements U
     }
 
     public documentInteractionControllerViewForPreview(controller: UIDocumentInteractionController) {
-        return this.getViewController().view;
+        if (this.getViewController()) {
+            return this.getViewController().view;
+        } else {
+            const app = ShareFile.getter(UIApplication, UIApplication.sharedApplication);
+            return (app.keyWindow.rootViewController as UINavigationController).view;
+        }
+
     }
 
 }

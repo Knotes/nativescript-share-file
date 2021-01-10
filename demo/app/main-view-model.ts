@@ -1,6 +1,10 @@
-import { Observable } from 'tns-core-modules/data/observable';
-import { ShareFile } from 'nativescript-share-file';
-import * as fs from 'tns-core-modules/file-system';
+// import { Observable } from 'tns-core-modules/data/observable';
+import { ShareFile } from '@knotes/nativescript-share-file';
+// import * as fs from 'tns-core-modules/file-system';
+import {
+  Observable,
+} from '@nativescript/core';
+import * as fs from '@nativescript/core/file-system';
 
 export class HelloWorldModel extends Observable {
   shareFile: ShareFile;
@@ -19,31 +23,29 @@ export class HelloWorldModel extends Observable {
     this.shareFile = new ShareFile();
 
     try {
-      this.file.writeText('Send this txt to other apps').then( () => {
+      this.file.writeText('Send this txt to other apps').then(() => {
         setTimeout(() => {
           this.shareFile.open({
             path: this.path,
             intentTitle: 'Open text file with:',
             rect: {
-                x: 110,
-                y: 110,
-                width: 0,
-                height: 0
+              x: 110,
+              y: 110,
+              width: 0,
+              height: 0
             },
             options: true,
             animated: true
           });
         }, 3000);
 
-      } ).catch( (e) => {
-          console.log('Creating text file failed');
-          alert(JSON.stringify(e));
+      }).catch((e) => {
+        console.log('Creating text file failed');
+        alert(JSON.stringify(e));
       });
     } catch (e) {
       alert(e);
       console.log('Error while creating text file');
     }
-
-
   }
 }

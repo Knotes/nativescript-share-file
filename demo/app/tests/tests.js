@@ -1,4 +1,4 @@
-var ShareFile = require("nativescript-share-file").ShareFile;
+var ShareFile = require("@knotes/nativescript-share-file").ShareFile;
 var shareFile = new ShareFile();
 
 describe("greet function", function() {

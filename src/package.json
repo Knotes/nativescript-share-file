@@ -1,5 +1,5 @@
 {
-    "name": "nativescript-share-file-knotes",
+    "name": "@knotes/nativescript-share-file",
     "version": "1.0.11",
     "description": "Send/share file to other apps.",
     "main": "share-file",
@@ -25,7 +25,8 @@
         "demo.reset": "cd ../demo && rimraf platforms",
         "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-share-file && tns plugin add ../src",
         "clean": "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
-        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
+        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
+        "setup": "npm i && ts-patch install"
     },
     "keywords": [
         "NativeScript",
@@ -46,13 +47,16 @@
     "homepage": "https://github.com/braune-digital/nativescript-share-file",
     "readmeFilename": "README.md",
     "devDependencies": {
-        "tns-core-modules": "^3.1.0",
-        "tns-platform-declarations": "^3.1.0",
-        "typescript": "~2.3.0",
+        "@nativescript/types": "~7.0.0",
+        "@nativescript/webpack": "~4.0.0",
         "prompt": "^1.0.0",
         "rimraf": "^2.5.0",
-        "tslint": "^5.0.0"
+        "ts-patch": "^1.3.1",
+        "tslint": "^5.0.0",
+        "typescript": "~3.9.0"
     },
-    "dependencies": {},
+    "dependencies": {
+        "@nativescript/core": "~7.1.0"
+    },
     "bootstrapper": "nativescript-plugin-seed"
 }
